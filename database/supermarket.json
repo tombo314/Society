@@ -1,0 +1,11 @@
+{
+    "item": {
+        "tomato": {
+            "price": 120
+        },
+        
+        "chicken": {
+            "price": 300
+        }
+    }
+}
