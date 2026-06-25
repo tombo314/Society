@@ -1,8 +1,8 @@
-from random import choice
 from time import sleep
 
-from residents import residents
-from human import Human
+from resident import residents
+from action import Action
+# from human import Human
 # from shop.shop import Shop
 # from save_human import save_human
 
@@ -16,14 +16,17 @@ def update_day(day_count: int) -> int:
     day_count += 1
     return day_count
 
+action = Action()
+
 # デイリーループ
 while True:
     # 日数表示
     print(f"日数:{day_count:3}日目")
 
-    person: Human = choice(residents)
-    action: str = "朝ご飯を食べた。"
-
-    print(f"{person} は {action}")
+    # 個人の行動
+    for person in residents:
+        # 1アクション/日
+        daily_action: str = action.get_random_action()
+        print(f"{person} は {daily_action}")
 
     day_count = update_day(day_count)
