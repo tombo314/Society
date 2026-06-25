@@ -4,4 +4,4 @@ class Human:
         self.money: int = money
 
     def __repr__(self) -> str:
-        return f"名前: {self.name}"
+        return self.name
