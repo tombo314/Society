@@ -1,6 +1,6 @@
 from time import sleep
 
-from resident import residents
+from people.resident import residents
 from action import Action
 # from human import Human
 # from shop.shop import Shop

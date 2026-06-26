@@ -1,4 +1,4 @@
-from human import Human
+from people.human import Human
 
 class Shop:
     def __init__(self) -> None:
