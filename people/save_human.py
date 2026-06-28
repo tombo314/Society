@@ -1,4 +1,4 @@
-from python.society.people.human import Human
+from people.human import Human
 import json
 
 def save_human(people: list[Human]):

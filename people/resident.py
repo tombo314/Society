@@ -1,4 +1,4 @@
-from python.society.people.human import Human
+from people.human import Human
 import json
 
 with open("database/residents.json", "r", encoding="utf-8") as f:

@@ -1,4 +1,4 @@
-from shop import Shop
+from shop.shop import Shop
 
 class Supermarket(Shop):
     def __init__(self) -> None:
