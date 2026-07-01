@@ -1,6 +1,72 @@
 {
     "candidate": {
-        "lastName": ["Kidoba"],
-        "firstName": ["Yuto"]
+        "lastName": [
+            "Sato", "Suzuki", "Takahashi", "Tanaka", "Watanabe",
+            "Ito", "Yamamoto", "Nakamura", "Kobayashi", "Kato",
+            "Yoshida", "Yamada", "Sasaki", "Yamaguchi", "Matsumoto",
+            "Inoue", "Kimura", "Hayashi", "Shimizu", "Saito",
+            "Yamazaki", "Mori", "Abe", "Ikeda", "Hashimoto",
+            "Yamashita", "Ishikawa", "Nakajima", "Maeda", "Fujita",
+            "Ogawa", "Goto", "Okada", "Hasegawa", "Murakami",
+            "Kondo", "Ishii", "Sakamoto", "Endo", "Aoki",
+            "Fujii", "Nishimura", "Fukuda", "Ota", "Miura",
+            "Fujiwara", "Okamoto", "Matsuda", "Nakagawa", "Nakano",
+            "Harada", "Ono", "Tamura", "Takeuchi", "Kaneko",
+            "Wada", "Nakayama", "Ishida", "Ueda", "Morita",
+            "Hara", "Shibata", "Sakai", "Kudo", "Yokoyama",
+            "Miyazaki", "Miyamoto", "Uchida", "Takagi", "Ando",
+            "Taniguchi", "Onishi", "Maruyama", "Imai", "Takada",
+            "Fujimoto", "Takeda", "Murata", "Ueno", "Sugiyama",
+            "Masuda", "Sugawara", "Hirano", "Kojima", "Kubo",
+            "Matsui", "Chiba", "Iwasaki", "Sakurai", "Kinoshita",
+            "Noguchi", "Matsuo", "Nomura", "Kikuchi", "Sano",
+            "Onodera", "Komatsu", "Iwata", "Nakabayashi", "Hattori"
+        ],
+        "firstName": {
+            "male": [
+                "Yuto", "Haruto", "Sota", "Yuki", "Hayato",
+                "Riku", "Ren", "Kaito", "Yuma", "Sora",
+                "Kota", "Daiki", "Kenta", "Shota", "Takumi",
+                "Ryota", "Yusuke", "Kazuki", "Naoki", "Tatsuya",
+                "Kenji", "Hiroshi", "Takeshi", "Satoshi", "Makoto",
+                "Osamu", "Akira", "Tsubasa", "Yamato", "Ryo",
+                "Sho", "Jun", "Daisuke", "Keita", "Shun",
+                "Taichi", "Kazuya", "Masaki", "Tomoya", "Yuya",
+                "Koki", "Itsuki", "Asahi", "Minato", "Rui",
+                "Kai", "Takahiro", "Naoya", "Shinji", "Kohei",
+                "Yuji", "Toru", "Wataru", "Manabu", "Noboru",
+                "Isamu", "Tadashi", "Hideki", "Katsumi", "Masato",
+                "Nobuo", "Kazuo", "Tetsuya", "Junichi", "Kenichi",
+                "Shinya", "Ryohei", "Yohei", "Kosuke", "Daichi",
+                "Sosuke", "Rikuto", "Haruki", "Sotaro", "Kentaro",
+                "Shintaro", "Yuichiro", "Koji", "Goro", "Ichiro",
+                "Jiro", "Saburo", "Shiro", "Taro", "Hiroto",
+                "Yoshihiro", "Masashi", "Tomohiro", "Kazuhiro", "Eita",
+                "Gen", "Jin", "Rei", "Tsukasa", "Reon",
+                "Sena", "Kanata", "Kaede", "Hibiki", "Arata"
+            ],
+            "female": [
+                "Sakura", "Yui", "Hina", "Rin", "Mei",
+                "Aoi", "Yuna", "Akari", "Honoka", "Mio",
+                "Riko", "Miu", "Koharu", "Ichika", "Hinata",
+                "Saki", "Yuka", "Ayaka", "Misaki", "Nana",
+                "Haruka", "Kanako", "Yukina", "Mai", "Aya",
+                "Rika", "Mika", "Emi", "Yuko", "Naomi",
+                "Kaori", "Megumi", "Yumi", "Tomoko", "Keiko",
+                "Kyoko", "Sachiko", "Hiroko", "Junko", "Yoko",
+                "Mariko", "Noriko", "Chieko", "Michiko", "Kazuko",
+                "Yasuko", "Fumiko", "Naoko", "Reiko", "Akiko",
+                "Tomomi", "Nozomi", "Manami", "Asami", "Ayumi",
+                "Chihiro", "Kana", "Rena", "Reina", "Marina",
+                "Karin", "Erika", "Yuina", "Momoka", "Nanami",
+                "Hikari", "Airi", "Rio", "Mizuki", "Wakana",
+                "Kokoro", "Himari", "Tsumugi", "Sara", "Yua",
+                "Ema", "Nao", "Anna", "Mana", "Kokona",
+                "Sana", "Mao", "Yuzuki", "Hazuki", "Natsuki",
+                "Satsuki", "Miyu", "Miki", "Chika", "Shiori",
+                "Kaho", "Momo", "Rina", "Nagisa", "Ruri",
+                "Sumire", "Kotone", "Fuka", "Mayu", "Yoshino"
+            ]
+        }
     }
 }
