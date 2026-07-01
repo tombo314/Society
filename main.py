@@ -45,10 +45,13 @@ while True:
     print(f"日数:{day_count:3}日目")
 
     # 個人の行動
+    print("------------")
     for person in resident.residents:
         # 1アクション/日
-        daily_action: str = action.get_random_action()
-        print(f"{person} は {daily_action}")
+        person = action.act_randomly(person)
+        print(f"{person} は {person.action_log}")
         print(f"所持金: {person.money}円")
+        print(f"空腹度: {person.hunger}")
+        print("------------")
 
     day_count = update_day(day_count)

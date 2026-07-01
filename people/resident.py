@@ -6,6 +6,7 @@ from people.human import Human
 class Resident:
     def __init__(self) -> None:
         self.INIT_MONEY: int = 10000
+        self.INIT_HUNGER: int = 100
         with open("database/residents.json", "r", encoding="utf-8") as f:
             self.residents_json = json.load(f)
         if len(self.residents_json["residents"]) == 0:
@@ -20,7 +21,8 @@ class Resident:
         """ 住民一覧をメンバ変数として構築する """
         for name in self.residents_dict:
             money: int = self.residents_dict[name]["money"]
-            resident = Human(name, money)
+            hunger: int = self.residents_dict[name]["hunger"]
+            resident = Human(name, money, hunger)
             self.residents.append(resident)
 
     def add_people(self) -> None:
@@ -40,10 +42,12 @@ class Resident:
         person: dict[str, dict[str, dict[str, int]]] = {
             "residents": {
                 male_name: {
-                    "money": self.INIT_MONEY
+                    "money": self.INIT_MONEY,
+                    "hunger": self.INIT_HUNGER
                 },
                 female_name: {
-                    "money": self.INIT_MONEY
+                    "money": self.INIT_MONEY,
+                    "hunger": self.INIT_HUNGER
                 }
             }
         }
