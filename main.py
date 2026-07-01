@@ -18,7 +18,6 @@ def update_day(day_count: int) -> int:
 
 action = Action()
 resident = Resident()
-resident.add_person()
 
 # デイリーループ
 while True:
