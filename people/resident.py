@@ -27,16 +27,22 @@ class Resident:
         with open("database/name_candidate.json", "r", encoding="utf-8") as f:
             last_first_candidate = dict(json.load(f))["candidate"]
         last_candidate: list[str] = last_first_candidate["lastName"]
-        first_candidate: list[str] = last_first_candidate["firstName"]
+        first_candidate_male: list[str] = last_first_candidate["firstName"]["male"]
+        first_candidate_female: list[str] = last_first_candidate["firstName"]["female"]
 
         # 名字と名前を1つずつ選んで、最初の住民1人を構築する
         # FIXME: 2人にして結婚できるようにする
-        last_selected: str = choice(last_candidate)
-        first_selected: str = choice(first_candidate)
-        name: str = last_selected + " " + first_selected
+        last_name: str = choice(last_candidate)
+        first_name_male: str = choice(first_candidate_male)
+        first_name_female: str = choice(first_candidate_female)
+        male_name: str = last_name + " " + first_name_male
+        female_name: str = last_name + " " + first_name_female
         person: dict[str, dict[str, dict[str, int]]] = {
             "residents": {
-                name: {
+                male_name: {
+                    "money": self.INIT_MONEY
+                },
+                female_name: {
                     "money": self.INIT_MONEY
                 }
             }
