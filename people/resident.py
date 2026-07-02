@@ -1,33 +1,25 @@
-import json
 from random import choice
-from typing import TypedDict
 
 from people.human import Human
-from const import *
-
-class ResidentData(TypedDict):
-    gender: str
-    money: int
-    satiety: int
+from file_operation import FileOperation
+import const
 
 class Resident:
     def __init__(self) -> None:
-        FILE_PATH = "database/residents.json"
+        fo = FileOperation(const.FILE_PATH_RESIDENTS)
         try:
             # 住民ファイルを開く
-            with open(FILE_PATH, "r", encoding="utf-8") as f:
-                self.residents_json = json.load(f)
+            self.residents_json = fo.read()
             # 住民データが2人未満のとき、最初の住民2人を新しく作成する
-            if len(self.residents_json["residents"]) < 2:
+            if len(self.residents_json["residents"]) < const.INIT_PEOPLE_NUM:
                 self._init_people()
         except:
             # 住民ファイルが空のとき/破損しているとき、最初の住民2人を作成する
             self._init_people()
 
-        # 住民データをロードする
-        with open(FILE_PATH, "r", encoding="utf-8") as f:
-            self.residents_json = json.load(f)
-            self.residents_dict: dict[str, ResidentData] = self.residents_json["residents"]
+        # 住民データを取得する
+        self.residents_json = fo.read()
+        self.residents_dict: dict[str, dict[str, str | int]] = self.residents_json["residents"]
 
         # 外部公開用の住民リストを作る
         self.residents: list[Human] = []
@@ -40,18 +32,15 @@ class Resident:
     def _build(self) -> None:
         """ 外部公開用の住民リストを作る """
         for name in self.residents_dict:
-            resident_data = self.residents_dict[name]
-            gender: str = resident_data["gender"]
-            money: int = resident_data["money"]
-            satiety: int = resident_data["satiety"]
-            resident: Human = Human(name, gender, money, satiety)
+            resident: Human = Human.from_dict(name, self.residents_dict[name])
             self.residents.append(resident)
 
     def _select_from_candicate(self) -> list[str]:
-        with open("database/name_candidate.json", "r", encoding="utf-8") as f:
-            candidate = dict(json.load(f))["candidate"]
-            last_name_candidate = candidate["lastName"]
-            first_name_candidate = candidate["firstName"]
+        fo = FileOperation(const.FILE_PATH_NAME_CANDIDATE)
+        candidate = dict(fo.read())["candidate"]
+        last_name_candidate = candidate["lastName"]
+        first_name_candidate = candidate["firstName"]
+        
         
         # 名字をランダムに選ぶ
         last_name: str = choice(last_name_candidate)
@@ -75,21 +64,29 @@ class Resident:
         male_name, female_name = self._select_from_candicate()
 
         # 男女のペアを作成する
-        primitive_pair: dict[str, dict[str, ResidentData]] = {
+        male = Human(
+            male_name,
+            const.GENDER_MALE,
+            const.INIT_MONEY,
+            const.INIT_SATIETY,
+            const.INIT_AGE,
+            const.INIT_DAYS_PASSED
+        )
+        female = Human(
+            female_name,
+            const.GENDER_MALE,
+            const.INIT_MONEY,
+            const.INIT_SATIETY,
+            const.INIT_AGE,
+            const.INIT_DAYS_PASSED
+        )
+        primitive_pair: dict[str, dict[str, dict[str, str | int]]] = {
             "residents": {
-                male_name: {
-                    "money": INIT_MONEY,
-                    "gender": GENDER_MALE,
-                    "satiety" : INIT_SATIETY
-                },
-                female_name: {
-                    "money": INIT_MONEY,
-                    "gender": GENDER_MALE,
-                    "satiety": INIT_SATIETY
-                }
+                male.name: male.to_dict(),
+                female.name: female.to_dict(),
             }
         }
 
         # 最初の2人のデータをDBに書き込む
-        with open("database/residents.json", "w") as f:
-            json.dump(primitive_pair, f, indent=4, ensure_ascii=False)
+        fo = FileOperation(const.FILE_PATH_RESIDENTS)
+        fo.write(primitive_pair)
