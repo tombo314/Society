@@ -1,34 +1,16 @@
-from time import sleep
-
 from people.resident import Resident
 from people.save_human import save_human
 from action.action import Action
-# from human import Human
-# from shop.shop import Shop
-# from save_human import save_human
+from metadata import MetaData
+import const
 
 # デバッグモード
 # True: 1秒/日
 # False: 4秒/日
 DEBUG_MODE = True
 
-DAILY_LOOP_SLEEP_DURATION: int = 4
-DAILY_LOOP_SLEEP_DURATION_DEBUG: int = 1
-day_count: int = 1
-
-def update_day(day_count: int) -> int:
-    """
-    日付が変わる
-    param: その日の日付
-    return: 翌日の日付
-    """
-    print()
-    if DEBUG_MODE:
-        sleep(DAILY_LOOP_SLEEP_DURATION_DEBUG)
-    else:
-        sleep(DAILY_LOOP_SLEEP_DURATION)
-    day_count += 1
-    return day_count
+# メタデータを管理する
+metadata = MetaData(DEBUG_MODE, const.INIT_DAYS_PASSED)
 
 # 行動を管理する
 action = Action()
@@ -40,7 +22,7 @@ resident = Resident()
 while True:
     print("-----------------------------------------")
     # 日数表示
-    print(f"日数:{day_count:3}日目")
+    print(f"日数:{metadata.days_passed:3}日目")
 
     # 個人の行動
     print("------------")
@@ -51,4 +33,4 @@ while True:
         person.show_status()
         save_human(person)
 
-    day_count = update_day(day_count)
+    metadata.update_day()
