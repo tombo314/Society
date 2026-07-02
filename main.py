@@ -48,7 +48,8 @@ while True:
     print("------------")
     for person in resident.residents:
         # 1アクション/日
-        person = action.act_randomly(person)
+        # person = action.act_randomly(person)
+        action.act_randomly(person)
         print(f"{person} は {person.action_log}")
         print(f"所持金: {person.money}円")
         print(f"空腹度: {person.hunger}")

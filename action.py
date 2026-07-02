@@ -6,6 +6,7 @@ class Action:
     def __init__(self) -> None:
         # action_id: action
         self.actions: list[str] = [
+            "何もしなかった",
             "朝ご飯を食べた。"
         ]
 
@@ -16,6 +17,17 @@ class Action:
         return person
 
     def _act(self, person: Human, action_id: int) -> Human:
-        if action_id == 0:
-            person.hunger += 30
+        match action_id:
+            case 1:
+                # 食事をする
+                self.have_meal(person)
+            case _:
+                # 何もしない
+                pass
+        return person
+
+    def have_meal(self, person: Human) -> Human:
+        HUNGER_INCREMENT: int = 30
+        person.hunger += HUNGER_INCREMENT
+        person.action_log = "朝ごはんを食べた。"
         return person
