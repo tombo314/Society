@@ -2,7 +2,7 @@ from time import sleep
 import json
 
 from people.resident import Resident
-from action import Action
+from action.action import Action
 # from human import Human
 # from shop.shop import Shop
 # from save_human import save_human
