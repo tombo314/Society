@@ -12,8 +12,8 @@ class Action:
 
     def act_randomly(self, person: Human) -> Human:
         random_action_id = randint(0, len(self.actions) - 1)
-        person = self._act(person, random_action_id)
         person.action_log = self.actions[random_action_id]
+        person = self._act(person, random_action_id)
         return person
 
     def _act(self, person: Human, action_id: int) -> Human:
