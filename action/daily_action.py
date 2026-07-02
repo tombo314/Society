@@ -1,4 +1,4 @@
-class Daily:
+class DailyAction:
     def __init__(self) -> None:
         self.daily_action: dict[str, list[str]] = dict()
 
