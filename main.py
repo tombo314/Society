@@ -2,6 +2,7 @@ from time import sleep
 import json
 
 from people.resident import Resident
+from people.save_human import save_human
 from action.action import Action
 # from human import Human
 # from shop.shop import Shop
@@ -51,5 +52,6 @@ while True:
         # 1人につき1アクション/日
         person = action.act_randomly(person)
         person.show_status()
+        save_human(person)
 
     day_count = update_day(day_count)
