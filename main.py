@@ -8,6 +8,8 @@ from action.action import Action
 # from save_human import save_human
 
 # デバッグモード
+# True: 1秒/日
+# False: 4秒/日
 DEBUG_MODE = True
 
 DAILY_LOOP_SLEEP_DURATION: int = 4
@@ -28,7 +30,10 @@ def update_day(day_count: int) -> int:
     day_count += 1
     return day_count
 
+# 行動を管理する
 action = Action()
+
+# 住民を管理する
 resident = Resident()
 
 # デイリーループ
