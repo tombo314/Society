@@ -3,6 +3,7 @@ from random import choice
 from typing import TypedDict
 
 from people.human import Human
+from const import *
 
 class ResidentData(TypedDict):
     gender: str
@@ -11,8 +12,6 @@ class ResidentData(TypedDict):
 
 class Resident:
     def __init__(self) -> None:
-        self.INIT_MONEY: int = 10000
-        self.INIT_SATIETY: int = 50
         with open("database/residents.json", "r", encoding="utf-8") as f:
             self.residents_json = json.load(f)
         if len(self.residents_json["residents"]) == 0:
@@ -46,15 +45,17 @@ class Resident:
         first_name_female: str = choice(first_candidate_female)
         male_name: str = last_name + " " + first_name_male
         female_name: str = last_name + " " + first_name_female
-        person: dict[str, dict[str, dict[str, int]]] = {
+        person: dict[str, dict[str, ResidentData]] = {
             "residents": {
                 male_name: {
-                    "money": self.INIT_MONEY,
-                    "satiety": self.INIT_SATIETY
+                    "money": INIT_MONEY,
+                    "gender": GENDER_MALE,
+                    "satiety" : INIT_SATIETY
                 },
                 female_name: {
-                    "money": self.INIT_MONEY,
-                    "satiety": self.INIT_SATIETY
+                    "money": INIT_MONEY,
+                    "gender": GENDER_MALE,
+                    "satiety": INIT_SATIETY
                 }
             }
         }
