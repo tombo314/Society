@@ -41,6 +41,7 @@ resident = Resident()
 
 # デイリーループ
 while True:
+    print("-----------------------------------------")
     # 日数表示
     print(f"日数:{day_count:3}日目")
 
