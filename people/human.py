@@ -1,9 +1,14 @@
 class Human:
-    def __init__(self, name: str, money: int, satiety: int) -> None:
+    def __init__(self, name: str, gender: str, money: int, satiety: int) -> None:
         self.name: str = name
+        self.gender: str = gender
         self.money: int = money
         self.satiety: int = satiety
         self.action_log: str = ""
+        self.parents: dict[str, str] = {"father": "", "mother": ""}
+        self.childs: list[str] = []
+        self.husband: str = ""
+        self.wife: str = ""
 
     def __repr__(self) -> str:
         return self.name
