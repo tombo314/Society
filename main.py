@@ -1,5 +1,4 @@
 from time import sleep
-import json
 
 from people.resident import Resident
 from people.save_human import save_human
@@ -29,14 +28,6 @@ def update_day(day_count: int) -> int:
     day_count += 1
     return day_count
 
-if DEBUG_MODE:
-    # 住民をリセットする
-    with open("database/residents.json", "w") as f:
-        residents: dict[str, dict[str, str | int]] = {
-            "residents": {}
-        }
-        json.dump(residents, f, indent=4)
-
 action = Action()
 resident = Resident()
 
@@ -48,7 +39,8 @@ while True:
 
     # 個人の行動
     print("------------")
-    for person in resident.residents:
+
+    for person in resident.get_residents():
         # 1人につき1アクション/日
         person = action.act_randomly(person)
         person.show_status()
