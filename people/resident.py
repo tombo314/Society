@@ -6,7 +6,7 @@ from people.human import Human
 class Resident:
     def __init__(self) -> None:
         self.INIT_MONEY: int = 10000
-        self.INIT_SATIETY: int = 100
+        self.INIT_SATIETY: int = 50
         with open("database/residents.json", "r", encoding="utf-8") as f:
             self.residents_json = json.load(f)
         if len(self.residents_json["residents"]) == 0:
