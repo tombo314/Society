@@ -22,7 +22,7 @@ resident = Resident()
 while True:
     print("-----------------------------------------")
     # 日数表示
-    print(f"日数:{metadata.days_passed:3}日目")
+    print(f"日数:{metadata.days_passed + 1}日目")
 
     # 個人の行動
     print("------------")
